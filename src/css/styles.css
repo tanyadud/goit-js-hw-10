@@ -4,12 +4,15 @@
   | default @import url()
   |============================
 */
+@import 'flatpickr/dist/flatpickr.min.css';
+@import 'izitoast/dist/css/iziToast.min.css';
+@import url('./1-timer.css');
+@import url('./2-snackbar.css');
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Avenir, Helvetica, Arial, 'Montserrat', sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -22,4 +25,52 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+input[type='text'],
+.form input[type='number'] {
+   font-family: inherit;
+   padding: 8px 16px;
+   border: 1px solid #808080;
+   border-radius: 4px;
+   letter-spacing: 0.04em;
+   outline: none;
+}
+
+input[type='text']:hover,
+input[type='number']:hover {
+   border: 1px solid #000;
+}
+
+input[type='text']:active,
+input[type='active']:active,
+input[type='number']:active,
+input[type='text']:focus,
+input[type='active']:focus,
+input[type='number']:focus {
+   color: #000;
+   border: 1px solid #4e75ff;
+}
+
+button {
+   padding: 8px 16px;
+   border: none;
+   outline: none;
+   border-radius: 8px;
+   background-color:#4E75FF;
+   font-size: 16px;
+   color: white;
+   font-weight: 500;
+   letter-spacing: 0.04em;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: #6C8CFF;
+}
+
+.container {
+   margin-top: 36px;
+   margin-left: 152px;
 }

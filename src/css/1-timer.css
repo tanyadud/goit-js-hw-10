@@ -1,0 +1,55 @@
+
+input[type='text'] {
+   width: 272px;
+   margin-right: 8px;
+}
+
+button[data-start]:hover {
+   background-color: #6C8CFF;
+}
+
+button[data-start]:disabled {
+   color: #989898;
+   background: #cfcfcf;
+}
+
+.timer {
+   display: flex;
+   gap: 24px;
+   margin-top: 32px;
+}
+
+.field {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+
+.value {
+   font-size: 40px;
+   line-height: 48px;
+   letter-spacing: 0.04em;
+}
+
+.label {
+   text-transform: uppercase;
+}
+
+.flatpickr-calendar {
+   background: #f5f5f5;
+}
+
+.icon-true {
+   background-image: url('../img/bi_check2-circle.svg');
+   background-repeat: no-repeat;
+   background-position: center;
+}
+  
+.icon-error {
+   background-image: url('../img/bi_x-octagon.svg');
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.flatpickr-day.today {
+    border-color: #4E75FF;
+}
