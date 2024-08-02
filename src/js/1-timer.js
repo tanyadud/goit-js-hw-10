@@ -13,7 +13,6 @@ dataSeconds = document.querySelector('span[data-seconds]')
 
 startButton.disabled = true;
 let userSelectedDate;
-let countdownInterval;
 
 const options = {
     enableTime: true,
@@ -44,33 +43,23 @@ const options = {
 flatpickr("#datetime-picker", options);
 
 startButton.addEventListener('click', event => {
- if (userSelectedDate) {
-      startCountdown(userSelectedDate);
-      startButton.disabled = true;
-      datePickerInput.disabled = true;
-    } else {
-      updateTimerDisplay
-    }
- });
-
-function startCountdown(endDate) {
-  clearInterval(countdownInterval);
-  countdownInterval = setInterval(() => {
-    const now = new Date();
-    const timeRemaining = endDate - now;
-  
-    if (timeRemaining <= 0) {
-       clearInterval(countdownInterval);
-       updateTimerDisplay(0, 0, 0, 0);
+  const timer = setInterval(() => {
+    startButton.disabled = true;
+    datePickerInput.disabled = true;
+    const timeDiff = userSelectedDate - Date.now();
+    const timerDate = convertMs(timeDiff);
+    if (timeDiff <= 0) {
+       clearInterval(timer);
        datePickerInput.disabled = false;
        startButton.disabled = true;
-        return;
-      }
-  
-    const { days, hours, minutes, seconds } = convertMs(timeRemaining);
-      updateTimerDisplay(days, hours, minutes, seconds);
-    }, 1000);
-  }
+    } else {
+      dataDays.textContent = addLeadingZero(timerDate.days);
+      dataHours.textContent = addLeadingZero(timerDate.hours);
+      dataMinutes.textContent = addLeadingZero(timerDate.minutes);
+      dataSeconds.textContent = addLeadingZero(timerDate.seconds);
+    }
+  }, 1000);
+});
 
 function convertMs(ms) {
     // Number of milliseconds per unit of time
@@ -100,10 +89,5 @@ function addLeadingZero(value) {
     }
 }
   
-function updateTimerDisplay(days, hours, minutes, seconds) {
-    dataDays.textContent = String(days);
-    dataHours.textContent = addLeadingZero(hours);
-    dataMinutes.textContent = addLeadingZero(minutes);
-    dataSeconds.textContent = addLeadingZero(seconds);
-  }
+
   
